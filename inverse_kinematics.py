@@ -35,12 +35,12 @@ thea_1, thea_2, thea_3, thea_4, thea_5, thea_6 = sympy.symbols("j1, j2, j3, j4, 
 
 def fk_sym(joints):
     pass
-DH = [[thea_1, 399.1, 0, -np.pi / 2],
-      [thea_2, 0, 448, 0],
-      [thea_3, 0, 42, -np.pi / 2],
-      [thea_4, 451, 0, np.pi / 2],
+DH = [[thea_1, 0.3991, 0, -np.pi / 2],
+      [thea_2, 0, 0.448, 0],
+      [thea_3, 0, 0.042, -np.pi / 2],
+      [thea_4, 0.451, 0, np.pi / 2],
       [thea_5, 0, 0, -np.pi / 2],
-      [thea_6, 82, 0, 0]]
+      [thea_6, 0.082, 0, 0]]
 
 # c1, s1 = sympy.symbols("c1, s1")
 # A = sympy.Matrix([[c1, -s1, 0, 0], [s1, c1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
