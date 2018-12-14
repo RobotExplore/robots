@@ -1,2 +1,0 @@
-1.0*(1.0*(1.0*(-1.0*sin(j2)*sin(j3)*cos(j1) + 1.0*cos(j1)*cos(j2)*cos(j3))*cos(j4) + 1.0*sin(j1)*sin(j4))*cos(j5) + 1.0*(-1.0*sin(j2)*cos(j1)*cos(j3) - 1.0*sin(j3)*cos(j1)*cos(j2))*sin(j5))*cos(j6) + \
-1.0*(-1.0*(-1.0*sin(j2)*sin(j3)*cos(j1) + 1.0*cos(j1)*cos(j2)*cos(j3))*sin(j4) + 1.0*sin(j1)*cos(j4))*sin(j6)
