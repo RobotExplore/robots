@@ -110,12 +110,13 @@ def jacobian(joints):
 
 def ik(T_tar, joints_ini):
     step = 0.5
+    lam = 0.5
     joints_cu = joints_ini
     iteration = 0
     while True:
         T_cu = forward_kinematics(joints_cu)
         delta_p = T_tar - T_cu
-        delat_p = delta_p.flatten()[:12]
+        delta_p = delta_p.flatten()[:12]
         error = norm(delta_p)
         # if iteration % 10 == 0:
         #     print(f"Iteration {iteration}, error:{error}")
@@ -123,7 +124,14 @@ def ik(T_tar, joints_ini):
             # print(f"Iteration {iteration}, error:{error}")
             return joints_cu
         ja = jacobian(joints_cu)
-        delta_joints = np.dot(pinv(ja), delat_p)
+        # pseudo inverse
+        delta_joints = np.dot(pinv(ja), delta_p)
+        # damped least square
+        # f = solve(ja.dot(ja.transpose())+lam**2*np.eye(12), delta_p)
+        # delta_joints = np.dot(ja.transpose(), f)
+        # inv_t = inv(ja.transpose().dot(ja) + lam**2*np.eye(6))
+        # delta_joints = inv_t.dot(ja.transpose()).dot(delta_p)
+
         joints_cu = joints_cu + delta_joints*step
         iteration += 1
 
